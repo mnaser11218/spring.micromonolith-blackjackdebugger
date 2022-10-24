@@ -1,0 +1,116 @@
+/* TO-DO: hide House hand (card backs?), reveal House hand after round, determine when tied, automate House hand's stay points, add responsive CSS. */
+
+body {
+	background-color: #3d3d3d;
+}
+
+#id {
+	color: inherit;
+}
+
+.ninja {
+	display: none;
+}
+
+.game {
+	width: 720px;
+	border: solid 1px #ddd;
+	margin: 0 auto;
+	background: #007e23;
+	border: solid 10px;
+	text-align: center;
+	min-height: 430px;
+	font-size: 1.5em;
+}
+
+.btn {
+	border: none;
+	padding: 15px 30px;
+	border-radius: 10px;
+	cursor: pointer;
+	background: #222;
+	color: white !important;
+	font-size: 1em;
+}
+
+.btn:hover {
+	background: #004910;
+}
+
+.game h3 {
+	padding: 10px;
+	background: black;
+	color: white;
+}
+
+.game .game-body {
+	padding: 20px;
+}
+
+.game .game-options {
+	text-align: center;
+}
+
+.game .card {
+	width: 50px;
+	height: 80px;
+	padding: 10px;
+	border: solid 1px #222;
+	background-color: gold;
+	display: inline-block;
+	border-radius: 10px;
+	font-size: 10pt;
+	text-align: center;
+	margin: 3px;
+	border: solid 3px;
+	font-size: 1em;
+}
+
+.game .winner {
+	display: inline-block;
+	background: goldenrod;
+	border: solid 5px #222;
+	border-radius: 10px;
+	padding: 5px 20px;
+	margin: 0 auto;
+	margin-top: 10px;
+	display: none;
+}
+
+.players {
+	width: 500px;
+	margin: 0 auto;
+	margin-top: 20px;
+	text-align: center;
+}
+
+.player {
+	width: 40%;
+	border: solid 5px #222;
+	border-radius: 10px;
+	padding: 10px;
+	display: inline-block;
+	margin: 1%;
+	vertical-align: top;
+	background: #808080;
+}
+
+.player.active {
+	border: solid 5px gold;
+}
+
+.points {
+	text-align: center;
+	font-size: 20pt;
+	font-weight: bold;
+	margin: 10px;
+}
+
+.deck {
+	float: left;
+	background: goldenrod;
+	color: #222;
+	padding: 10px;
+	border-radius: 10px;
+	border: double 5px;
+}

@@ -1,0 +1,82 @@
+<script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+
+
+<!--<form action="/person-controller/read" method="get">-->
+<!--<input id="read-button" type="submit" value="read"/>-->
+<!--</form>-->
+
+
+<!--<form action="/person-controller/update" method="put">-->
+<!--<input id="update-button" type="submit" value="update"/>-->
+<!--</form>-->
+
+
+<!--<form action="/person-controller/delete" method="delete">-->
+<!--<input id="delete-button" type="submit" value="delete"/>-->
+<!--</form>-->
+
+
+<form action="/person-controller/read-all" method="get">
+    <input id="read-all-button" type="submit" value="read-all"/>
+</form>
+
+
+<form action="/person-controller/create-default" method="post">
+    <input id="create-default-button" type="submit" value="create-leon"/>
+</form>
+
+
+
+First Name: <input id="fname"><br>
+Last Name: <input id="lname"><br>
+<form>
+    <button onclick="create(event)">Create Person</button>
+</form>
+
+Click <a href="./blackjack.html">here</a> to play the Blackjack game!
+
+
+
+<script>
+    class Person {
+        constructor(id_, fname_, lname_) {
+            this.id = id_;
+            this.firstName = fname_;
+            this.lastName = lname_;
+        }
+    }
+
+    function create(e) {
+        e.preventDefault();
+        console.log("click")
+        let firstName1 = document.getElementById("fname").value;
+        let lastName1 = document.getElementById("lname").value;
+        let jsonPerson1 = new Person(0, firstName1, lastName1);
+        let personData = JSON.stringify(jsonPerson1);
+        console.log(personData)
+
+
+        $.ajax({
+            type: "POST",
+            crossDomain: true,
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            url: "/person-controller/create",
+            data: personData,
+            dataType: "JSON ",
+            success: function (response) {
+                alert(JSON.stringify(response));
+            },
+            error: function () {
+                alert('Error while request..');
+            }
+        });
+
+    }
+</script>
