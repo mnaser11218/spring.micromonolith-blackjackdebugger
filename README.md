@@ -3,6 +3,7 @@
 * **Objective** - To create a full-stack monolithic application
 * **Purpose** - To gain familiarity with connecting a web service to a front end application
 * **Description**
+   * This project has been deployed [here](https://springboot-blackjack.onrender.com/)
    * Run this application by running the main method in `DemoApplication`.
    * Navigate to the server port specified in the [application.properties file](./src/main/resources/application.properties). By default, the port number is `8080`
    * If your application cannot run because something is occupying a port, execute this command from `Git Bash` with the respective port number specified:
