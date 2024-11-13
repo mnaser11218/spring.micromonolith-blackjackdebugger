@@ -14,3 +14,4 @@ function stay() {
 
 	controls.stay();
 }
+
