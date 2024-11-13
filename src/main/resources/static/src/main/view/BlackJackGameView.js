@@ -69,6 +69,7 @@ class BlackJackGameView {
     }
 
     endGame() {
+    console.log("inside endgame method")
         let winner = this.blackJackGameData.getDealer();
         const dealerScore = this.blackJackGameData.getDealer().getHandTotal();
         const playerScore = this.blackJackGameData.getPlayer().getHandTotal();

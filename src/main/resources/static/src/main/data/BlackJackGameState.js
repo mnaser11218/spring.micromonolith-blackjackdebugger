@@ -32,17 +32,7 @@ class BlackJackGameState {
     getCurrentPlayer() {
         return this.currentPlayer;
     }
-
-    
-    hit() {
-        // pop a card from the this.deck to the current player
-        // check if current player new points are over 21
-        const currentPlayer = this.getCurrentPlayer();
-        const topMostCard = this.getDeck().removeAndFetchTopMostCard();
-        currentPlayer.addCard(topMostCard);
-    }
-
-    setCurrentPlayer() {
+ setCurrentPlayer() {
         // switch current player to next player
         if(this.currentPlayer == this.player) {
             this.currentPlayer = this.dealer;
@@ -50,6 +40,20 @@ class BlackJackGameState {
             this.currentPlayer = this.player;
         }
     }
+    
+    hit() {
+        // pop a card from the this.deck to the current player
+        // check if current player new points are over 21
+//        if(this.currentPlayer == this.dealer && this.currentPlayer.getHandTotal() >= 17){
+//            this.setCurrentPlayer()
+//        }else{
+             const currentPlayer = this.getCurrentPlayer();
+             const topMostCard = this.getDeck().removeAndFetchTopMostCard();
+          currentPlayer.addCard(topMostCard);
+
+    }
+
+
 
     play() {
         const deck = this.deck;
