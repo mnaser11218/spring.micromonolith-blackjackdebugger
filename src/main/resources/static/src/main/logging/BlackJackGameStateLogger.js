@@ -9,7 +9,12 @@ class BlackJackGameStateLogger {
     isCurrentPlayerDealer() {
         log("Checking if current player is last player.");
         const outcome = this.blackJackGameData.isCurrentPlayerDealer();
+
         log("Current player is " + (outcome ? "" : "not") + " last player.")
+        console.log("inside iscurrent play dealer method: " + outcome)
+        // return this.blackJackGameData.isCurrentPlayerDealer();
+        return outcome;
+
     }
 
     getPlayer() {
@@ -45,10 +50,13 @@ class BlackJackGameStateLogger {
     }
 
     hit() {
+    console.log("inside hit method")
         this.blackJackGameData.hit();
     }
 
     play() {
+        console.log("inside play method")
+
         log("Playing initial hand")
         this.blackJackGameData.play();
         log("Initial hand played")
