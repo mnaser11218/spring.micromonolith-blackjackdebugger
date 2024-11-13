@@ -1,4 +1,11 @@
 // the purpose of this class is to manipulate the DOM by evaluating the `Game` state
+   class Player {
+                constructor(name, cards) {
+                    this.name = name;
+                    this.cards = cards;
+                }
+            }
+
 class BlackJackGameView {
     constructor(blackJackGameData) {
         this.blackJackGameData=blackJackGameData;
@@ -71,14 +78,20 @@ class BlackJackGameView {
     endGame() {
     console.log("inside endgame method")
         let winner = this.blackJackGameData.getDealer();
-        const dealerScore = this.blackJackGameData.getDealer().getHandTotal();
-        const playerScore = this.blackJackGameData.getPlayer().getHandTotal();
+        const dealerScore = this.blackJackGameData.getDealer()
+        const playerScore = this.blackJackGameData.getPlayer()
         if (playerScore > dealerScore && playerScore < 22) {
             winner = player;
         }
+
+        console.log("hand total dealer: " +this.blackJackGameData.getDealer())
+        console.log("hand total player: " +this.blackJackGameData.getPlayer())
         document.getElementById("game-options").style.display = "none";
         document.getElementById("winner").innerHTML = "Winner: Player " + winner.name;
         document.getElementById("winner").style.display = "inline-block";
+
+        console.log("dealer cards is: ")
+            this.create(dealerScore);
     }
 
     removeActiveOnCurrentPlayer() {
@@ -96,4 +109,37 @@ class BlackJackGameView {
         const elementId = "player_" + currentPlayerName;
         document.getElementById(elementId).classList.add("active");
     }
+
+
+   create(player) {
+        //  e.preventDefault();
+          console.log("click")
+          console.log("player card is :  " + player.cards)
+          let name = player.name;
+          let data= player.cards
+          let jsonPlayer1 = new Player(name, data);
+          let personData = JSON.stringify(jsonPlayer1);
+          console.log("in create method: " + personData.data)
+
+}
+//          $.ajax({
+//              type: "POST",
+//              crossDomain: true,
+//              headers: {
+//                  'Accept': 'application/json',
+//                  'Content-Type': 'application/json',
+//                  'Access-Control-Allow-Origin': '*'
+//              },
+//              url: "/player-controller/create",
+//              data: personData,
+//              dataType: "JSON ",
+//              success: function (response) {
+//                  alert(JSON.stringify(response));
+//              },
+//              error: function () {
+//                  alert('Error while request..');
+//              }
+//          });
+
+
 }
