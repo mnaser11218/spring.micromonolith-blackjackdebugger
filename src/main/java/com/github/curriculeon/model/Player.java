@@ -1,19 +1,31 @@
 package com.github.curriculeon.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
+import javax.persistence.*;
+import java.util.List;
+@Entity
 public class Player {
     @Id
     @GeneratedValue
     private Long id;
     private String name;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "player_id")
+    private List<Card> cards;
 
     public Player() {
     }
 
-    public Player(String name) {
+    public Player(String name, List<Card> cards) {
         this.name = name;
+        this.cards = cards;
+    }
+
+    public List<Card> getCards() {
+        return cards;
+    }
+
+    public void setCards(List<Card> cards) {
+        this.cards = cards;
     }
 
     public Long getId() {
