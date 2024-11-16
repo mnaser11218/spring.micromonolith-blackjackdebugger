@@ -3,7 +3,7 @@ package com.github.curriculeon.model;
 import javax.persistence.*;
 import java.util.List;
 @Entity
-public class Player {
+public class BlackJackPlayerState {
     @Id
     @GeneratedValue
     private Long id;
@@ -12,10 +12,10 @@ public class Player {
     @JoinColumn(name = "player_id")
     private List<Card> cards;
 
-    public Player() {
+    public BlackJackPlayerState() {
     }
 
-    public Player(String name, List<Card> cards) {
+    public BlackJackPlayerState(String name, List<Card> cards) {
         this.name = name;
         this.cards = cards;
     }

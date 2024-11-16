@@ -78,8 +78,8 @@ class BlackJackGameView {
     endGame() {
     console.log("inside endgame method")
         let winner = this.blackJackGameData.getDealer();
-        const dealerScore = this.blackJackGameData.getDealer()
-        const playerScore = this.blackJackGameData.getPlayer()
+        const dealerScore = this.blackJackGameData.getDealer().getHandTotal()
+        const playerScore = this.blackJackGameData.getPlayer().getHandTotal()
         if (playerScore > dealerScore && playerScore < 22) {
             winner = player;
         }
@@ -90,8 +90,8 @@ class BlackJackGameView {
         document.getElementById("winner").innerHTML = "Winner: Player " + winner.name;
         document.getElementById("winner").style.display = "inline-block";
 
-        console.log("dealer cards is: ")
-            this.create(dealerScore);
+        console.log("dealer cards is::: " + this.blackJackGameData.getPlayers() + "\n deck : " + this.blackJackGameData.getDeck())
+            this.create(this.blackJackGameData.getDealer());
     }
 
     removeActiveOnCurrentPlayer() {

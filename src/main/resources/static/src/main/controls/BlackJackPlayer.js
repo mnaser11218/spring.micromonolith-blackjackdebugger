@@ -8,7 +8,8 @@ class BlackJackPlayer {
 
     // prints the cards of the current BlackJackPlayerState
     viewHand() {
-        this.blackJackPlayerView.viewHand();
+       return this.blackJackPlayerView.viewHand();
+      // return "in view hand method"
     }
 
     // add card to hand
