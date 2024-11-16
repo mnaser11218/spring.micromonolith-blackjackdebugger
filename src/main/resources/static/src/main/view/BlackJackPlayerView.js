@@ -9,6 +9,7 @@ class BlackJackPlayerView {
         this.playerData.cards.forEach(card => {
             console.log("\t" + card.toString());
         });
+       // return this.playerData.cards;
     }
 
     getHandWebElement() {

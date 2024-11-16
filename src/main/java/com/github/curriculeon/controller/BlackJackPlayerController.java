@@ -1,7 +1,7 @@
 package com.github.curriculeon.controller;
 
-import com.github.curriculeon.model.Player;
-import com.github.curriculeon.service.PlayerService;
+import com.github.curriculeon.model.BlackJackPlayerState;
+import com.github.curriculeon.service.BlackJackPlayerStateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,20 +12,20 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 @RequestMapping(value = "/player-controller")
 @RestController
-public class PlayerController {
-    PlayerService playerService;
+public class BlackJackPlayerController {
+    BlackJackPlayerStateService blackJackPlayerStateService;
     @Autowired
-    public PlayerController(PlayerService playerService){
-        this.playerService = playerService;
+    public BlackJackPlayerController(BlackJackPlayerStateService blackJackPlayerStateService){
+        this.blackJackPlayerStateService = blackJackPlayerStateService;
     }
 
     @RequestMapping(value="/read-all", method= RequestMethod.GET)
-    public ResponseEntity<List<Player>>readAll(){
+    public ResponseEntity<List<BlackJackPlayerState>>readAll(){
         return null;
     }
     @RequestMapping(value="/create", method=RequestMethod.POST)
-    public ResponseEntity<Player> createPlayer(@RequestBody Player player){
-       Player responseBody  = this.playerService.create(player);
+    public ResponseEntity<BlackJackPlayerState> createPlayer(@RequestBody BlackJackPlayerState player){
+        BlackJackPlayerState responseBody  = this.blackJackPlayerStateService.create(player);
        ResponseEntity responseEntity = new ResponseEntity(responseBody, HttpStatus.OK);
 
         return responseEntity;
