@@ -21,7 +21,11 @@ public class BlackJackPlayerController {
 
     @RequestMapping(value="/read-all", method= RequestMethod.GET)
     public ResponseEntity<List<BlackJackPlayerState>>readAll(){
-        return null;
+         List<BlackJackPlayerState> responseBody = this.blackJackPlayerStateService.getAll();
+         ResponseEntity responseEntity = new ResponseEntity(responseBody, HttpStatus.OK);
+         return responseEntity;
+
+
     }
     @RequestMapping(value="/create", method=RequestMethod.POST)
     public ResponseEntity<BlackJackPlayerState> createPlayer(@RequestBody BlackJackPlayerState player){
